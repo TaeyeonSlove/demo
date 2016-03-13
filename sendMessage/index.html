@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>聊天模拟</title>
+		<style>
+			#cuank{
+				width:220px;
+				height:500px;
+				background:#f1f1f1;
+				margin: 0 auto;
+				overflow: scroll;
+				border:2px solid #333; 
+			}
+			#img{
+				display: inline-block;
+			}
+			.box2 img{
+				width:45px;
+				height:45px;
+			}
+			#box1{
+				margin: 0 auto;
+				width:500px;
+				height:600px;
+			}
+			#box1 img{
+				width:35px;
+				height:35px;
+			}
+			.box2{
+				margin: 0 auto;
+				text-align: center;
+				height:50px;
+				line-height: 50px;
+				vertical-align: middle;
+			}
+			#text{
+				display: inline-block;
+				position: relative;
+				bottom: 15px;
+			}
+			#btn1{
+				display: inline-block;
+				position: relative;
+				bottom:15px;
+				te
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				var oBtn1=document.getElementById("btn1");
+				var oCuank=document.getElementById("cuank");
+				var oImg=document.getElementById("img");
+				var oText=document.getElementById("text");
+				var num=1;
+				oImg.onclick=function(){
+					if(num){
+						oImg.src='img/2.png';
+						num=0;
+					}else if(num==0){
+						oImg.src='img/1.png';
+						num=1;
+					}
+				}
+				oBtn1.onclick=function(){
+					if(oText.value==''){
+						alert('亲,你把女神抛弃了吗？--请写上你最爱的女神啊')
+					}else{
+						if(num){
+							oCuank.innerHTML='<p style="text-align:left;"><img src="img/1.png"  />'+ oText.value +'</p>'+oCuank.innerHTML;
+							oText.value='';
+						}else if(num==0){
+							oCuank.innerHTML='<p style="text-align:left;"><img src="img/2.png"  />'+ oText.value +'</p>'+oCuank.innerHTML;
+							oText.value='';
+						}
+						
+					}
+					
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+				<div id="cuank"></div>
+			<div class="box2">
+				<img id="img" src="img/1.png"  />
+				<input id="text" type="text" />
+				<input id="btn1" type="button" value="提交" />
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
